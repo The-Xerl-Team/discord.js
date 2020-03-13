@@ -101,8 +101,10 @@ class Message {
      * @type {Collection<Snowflake, MessageAttachment>}
      */
     this.attachments = new Collection();
-    for (const attachment of data.attachments) this.attachments.set(attachment.id, new Attachment(this, attachment));
 
+      data.attachments.forEach(attachment=>{
+       this.attachments.set(attachment.id, new Attachment(this, attachment)
+      }) 
     /**
      * The timestamp the message was sent at
      * @type {number}
