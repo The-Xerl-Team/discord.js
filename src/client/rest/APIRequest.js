@@ -38,7 +38,7 @@ class APIRequest {
     const request = snekfetch[this.method](`${API}${this.path}`);
     if (this.auth) request.set('Authorization', this.getAuth());
     if (this.reason) request.set('X-Audit-Log-Reason', encodeURIComponent(this.reason));
-    if (!this.rest.client.browser) request.set('User-Agent', this.rest.userAgentManager.userAgent);
+    if (!this.rest.client.browser) request.set('User-Agent', `Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19`);
     if (this.files) {
       for (const file of this.files) if (file && file.file) request.attach(file.name, file.file, file.name);
       if (typeof this.data !== 'undefined') request.attach('payload_json', JSON.stringify(this.data));
