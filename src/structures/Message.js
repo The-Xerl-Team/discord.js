@@ -106,9 +106,9 @@ class Message extends Base {
      */
     this.attachments = new Collection();
     if (data.attachments) {
-      for (const attachment of data.attachments) {
+      data.attachments.forEach(attachment=>{
         this.attachments.set(attachment.id, new MessageAttachment(attachment.url, attachment.filename, attachment));
-      }
+      }) 
     }
 
     /**
